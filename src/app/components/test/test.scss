@@ -1,3 +1,48 @@
-p {
-  color: red;
+div {
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ff5542d0;
+  color: aliceblue;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+button:hover {
+  background-color: #b13a2cd0;
+}
+
+button:disabled {
+  background-color: grey;
+  color: #000;
+  cursor: not-allowed;
+}
+
+.active {
+  background-color: rgb(125, 125, 218);
+}
+.disabled {
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+}
+.event-example {
+  height: 50px;
+  width: 80px;
+  background-color: #999;
+  margin-bottom: 10px;
+}
+
+.clicked {
+  background-color: aqua;
 }

@@ -1,13 +1,19 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Test } from './components/test/test';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Test],
+  imports: [Test],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('angular-project');
+
+  messageFromParent = 'Im yo father';
+  messageFromChild = '';
+
+  getMessageFromChild(message: string) {
+    this.messageFromChild = message;
+  }
 }

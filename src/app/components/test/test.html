@@ -1,1 +1,16 @@
-<p>Test Component</p>
+<div>
+    <p>Test Component</p>
+    <!-- <p>{{title}}</p> -->
+    <!-- <p>{{getFullName()}}</p>
+    <p [ngStyle]="{color: 'red'}">ngStyle used</p>
+    <p [ngClass]="{'active': isActive, 'disabled': isDisabled}"> ngClass used</p> -->
+
+    <!-- <button [disabled]="!isEnabled">Click me</button> -->
+    <!-- <div class="event-example" [ngClass]="{'clicked':isClickedState}"></div>
+    <button (click)="toggleState()">Toggle state</button> -->
+    <input type="text" [(ngModel)]="inputText" /> <!-- Two-way binding -->
+    <p>{{inputText}}</p> <!-- Виведення значень за допомогою інтерполяції -->
+
+    <p>{{childMessage}}</p>
+    <button (click)="sendMessageToParent()">Send message to Parent!</button>
+</div>
