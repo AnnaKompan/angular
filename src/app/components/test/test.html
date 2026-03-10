@@ -11,6 +11,64 @@
     <input type="text" [(ngModel)]="inputText" /> <!-- Two-way binding -->
     <p>{{inputText}}</p> <!-- Виведення значень за допомогою інтерполяції -->
 
-    <p>{{childMessage}}</p>
-    <button (click)="sendMessageToParent()">Send message to Parent!</button>
+    <!-- <p>{{childMessage}}</p> -->
+    <!-- <button (click)="sendMessageToParent()">Send message to Parent!</button> -->
+    <p appLightning [highlightColor]="'blue'"> Hover me to see effect! </p>
+
+    <!-- OLD IF-->
+    <!-- <p *ngIf="isClickedState ; else notClickedState"> Button was clicked! </p> 
+    <ng-template #notClickedState>
+        <p>Buton wasn't clicked!</p>
+    </ng-template>
+    <button (click)="toggleState()"> Toggle State </button> -->
+    <!-- NEW IF -->
+    @if (isClickedState){
+    <p>Button was clicked!</p>
+    }@else {
+    <p>Buton wasn't clicked!</p>
+    }
+    <button (click)="toggleState()">Toggle State</button>
+    <!-- OLD FOR -->
+    <!-- <ul>
+        <li *ngFor="let user of users; index as i">{{i+1}}: {{user}}</li>
+    </ul> -->
+    <!-- NEW FOR -->
+    <!-- <ul>
+        @for (item of items; track item.id; let idx = $index, e=$even){
+        <li>Item: #{{idx}}:{{item.name}}</li>
+        }@empty{
+        <li>There are no items</li>
+        }
+    </ul> -->
+    <ul>
+        @for (user of users; track user; let idx = $index, e=$even, total=$count){
+        <li>User: #{{idx+1}}:{{user}}</li>
+        <p>Total Users: {{total}}</p>
+        }@empty{
+        <li>There are no users!</li>
+        }
+    </ul>
+
+    <!-- OLD SWITCH -->
+    <!-- <div [ngSwitch]="appState">
+        <p *ngSwitchCase="'active'"> APP is active</p>
+        <p *ngSwitchCase="'paused'"> APP is paused</p>
+        <p *ngSwitchCase="'stopped'"> APP is stopped</p>
+        <p *ngSwitchDefault="">APP State is unknown</p>
+    </div> -->
+    <!-- NEW SWITCH -->
+    @switch(appState){
+    @case('active'){
+    <p>APP is active</p>
+    }
+    @case('paused'){
+    <p>APP is paused</p>
+    }
+    @case('stopped'){
+    <p>APP is stopped</p>
+    }
+    @default{
+    <p>APP State is unknown</p>
+    }
+    }
 </div>

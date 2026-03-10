@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Lightning } from '../../directives/lightning';
 
 @Component({
   selector: 'app-test',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Lightning],
   templateUrl: './test.html',
   // template: ` <div class="my-component">
   //   <p>Hello</p>
@@ -20,9 +21,19 @@ export class Test {
 
   isActive: boolean = false;
   isDisabled: boolean = true;
-  isClickedState: boolean = true;
+  isClickedState: boolean = false;
+  // notClickedState: boolean = true;
+  appState = 'paused';
 
   inputText: string = '';
+
+  users = ['Anna', 'Janet', 'James', 'David'];
+  items = [
+    { id: 1, name: 'apple' },
+    { id: 2, name: 'orange' },
+    { id: 3, name: 'grapes' },
+    { id: 4, name: 'lemon' },
+  ];
 
   //----------------------------------------------------------------------------
   @Input() childMessage: string = '';
@@ -34,7 +45,11 @@ export class Test {
   }
 
   toggleState() {
-    this.isClickedState = true;
+    if (this.isClickedState) {
+      this.isClickedState = false;
+    } else {
+      this.isClickedState = true;
+    }
   }
 
   sendMessageToParent() {
