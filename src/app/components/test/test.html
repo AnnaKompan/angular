@@ -71,4 +71,14 @@
     <p>APP State is unknown</p>
     }
     }
+
+    <p>{{today | date: 'shortDate' }}</p>
+    <p>{{"HELLO WORLD" | lowercase}}</p>
+    <p>{{"hello world" | uppercase}}</p>
+    <p>{{1500.5 | currency}}</p>
+    <p>{{1.23455322 | number}}</p>
+    <p>{{0.5| percent}}</p>
+    <p>{{"Hello world" | slice : 1 : 5}}</p>
+    <p>{{ { name: 'John', age: 23} | json }}</p>
+    <p>{{longText | truncate: 18}}</p>
 </div>

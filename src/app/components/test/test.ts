@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Lightning } from '../../directives/lightning';
+import { TruncatePipe } from '../../pipes/truncate-pipe';
 
 @Component({
   selector: 'app-test',
-  imports: [CommonModule, FormsModule, Lightning],
+  imports: [CommonModule, FormsModule, Lightning, TruncatePipe],
   templateUrl: './test.html',
   // template: ` <div class="my-component">
   //   <p>Hello</p>
@@ -34,6 +35,9 @@ export class Test {
     { id: 3, name: 'grapes' },
     { id: 4, name: 'lemon' },
   ];
+
+  today = new Date();
+  longText = 'Very long text, that need to cut';
 
   //----------------------------------------------------------------------------
   @Input() childMessage: string = '';
