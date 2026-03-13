@@ -11,9 +11,21 @@
     <input type="text" [(ngModel)]="inputText" /> <!-- Two-way binding -->
     <p>{{inputText}}</p> <!-- Виведення значень за допомогою інтерполяції -->
 
+    <div class="todo-container">
+        <input [(ngModel)]="newTask" placeholder="Add new task..." type="text" class="todo-input" />
+        <button (click)="addTask()" class="add-btn">Add</button>
+
+        <ul class="todo-list">
+            <li *ngFor="let task of tasks; let i = index" class="todo-item">
+                {{task}}
+                <button (click)="removeTask(i)" class="remove-btn">Remove</button>
+            </li>
+        </ul>
+    </div>
+
     <!-- <p>{{childMessage}}</p> -->
     <!-- <button (click)="sendMessageToParent()">Send message to Parent!</button> -->
-    <p appLightning [highlightColor]="'blue'"> Hover me to see effect! </p>
+    <!-- <p appLightning [highlightColor]="'blue'"> Hover me to see effect! </p> -->
 
     <!-- OLD IF-->
     <!-- <p *ngIf="isClickedState ; else notClickedState"> Button was clicked! </p> 
@@ -22,12 +34,12 @@
     </ng-template>
     <button (click)="toggleState()"> Toggle State </button> -->
     <!-- NEW IF -->
-    @if (isClickedState){
+    <!-- @if (isClickedState){
     <p>Button was clicked!</p>
     }@else {
     <p>Buton wasn't clicked!</p>
     }
-    <button (click)="toggleState()">Toggle State</button>
+    <button (click)="toggleState()">Toggle State</button> -->
     <!-- OLD FOR -->
     <!-- <ul>
         <li *ngFor="let user of users; index as i">{{i+1}}: {{user}}</li>
@@ -40,14 +52,14 @@
         <li>There are no items</li>
         }
     </ul> -->
-    <ul>
+    <!-- <ul>
         @for (user of users; track user; let idx = $index, e=$even, total=$count){
         <li>User: #{{idx+1}}:{{user}}</li>
         <p>Total Users: {{total}}</p>
         }@empty{
         <li>There are no users!</li>
         }
-    </ul>
+    </ul> -->
 
     <!-- OLD SWITCH -->
     <!-- <div [ngSwitch]="appState">
@@ -57,7 +69,7 @@
         <p *ngSwitchDefault="">APP State is unknown</p>
     </div> -->
     <!-- NEW SWITCH -->
-    @switch(appState){
+    <!-- @switch(appState){
     @case('active'){
     <p>APP is active</p>
     }
@@ -70,9 +82,9 @@
     @default{
     <p>APP State is unknown</p>
     }
-    }
+    } -->
 
-    <p>{{today | date: 'shortDate' }}</p>
+    <!-- <p>{{today | date: 'shortDate' }}</p>
     <p>{{"HELLO WORLD" | lowercase}}</p>
     <p>{{"hello world" | uppercase}}</p>
     <p>{{1500.5 | currency}}</p>
@@ -80,5 +92,5 @@
     <p>{{0.5| percent}}</p>
     <p>{{"Hello world" | slice : 1 : 5}}</p>
     <p>{{ { name: 'John', age: 23} | json }}</p>
-    <p>{{longText | truncate: 18}}</p>
+    <p>{{longText | truncate: 18}}</p> -->
 </div>
