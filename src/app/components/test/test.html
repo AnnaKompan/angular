@@ -1,5 +1,52 @@
 <div>
-    <p>Test Component</p>
+    <!--  -->
+    <div class="container">
+        <form [formGroup]="complexForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">Name: </label>
+                <input type="text" formControlName="name" />
+                <!-- touched when input empty and user didn't enter anyt' -->
+                <div *ngIf="name?.invalid && name?.touched" class="error">This value is invalid</div>
+            </div>
+
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" formControlName="email" />
+                <div *ngIf="email?.invalid && email?.touched" class="error">This value is invalid</div>
+            </div>
+
+            <div>
+                <label for="age">Age: </label>
+                <input type="number" formControlName="age" />
+                <div *ngIf="age?.invalid && age?.touched" class="error">This value is invalid</div>
+            </div>
+
+            <div>
+                <label for="password">Email: </label>
+                <input type="number" formControlName="password" />
+                <div *ngIf="password?.invalid && password?.touched" class="error">This value is invalid</div>
+            </div>
+
+            <div>
+                <input type="checkbox" formControlName="consent" />I agree to the terms and conditions
+                <div *ngIf="consent?.invalid && consent?.touched" class="error">This value is invalid</div>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <p>Test Component</p> -->
     <!-- <p>{{title}}</p> -->
     <!-- <p>{{getFullName()}}</p>
     <p [ngStyle]="{color: 'red'}">ngStyle used</p>
@@ -8,10 +55,12 @@
     <!-- <button [disabled]="!isEnabled">Click me</button> -->
     <!-- <div class="event-example" [ngClass]="{'clicked':isClickedState}"></div>
     <button (click)="toggleState()">Toggle state</button> -->
-    <input type="text" [(ngModel)]="inputText" /> <!-- Two-way binding -->
-    <p>{{inputText}}</p> <!-- Виведення значень за допомогою інтерполяції -->
+    <!-- Two-way binding -->
+    <!-- <input type="text" [(ngModel)]="inputText" />  -->
+    <!-- Виведення значень за допомогою інтерполяції -->
+    <!-- <p>{{inputText}}</p> -->
 
-    <div class="todo-container">
+    <!-- <div class="todo-container">
         <input [(ngModel)]="newTask" placeholder="Add new task..." type="text" class="todo-input" />
         <button (click)="addTask()" class="add-btn">Add</button>
 
@@ -21,7 +70,7 @@
                 <button (click)="removeTask(i)" class="remove-btn">Remove</button>
             </li>
         </ul>
-    </div>
+    </div> -->
 
     <!-- <p>{{childMessage}}</p> -->
     <!-- <button (click)="sendMessageToParent()">Send message to Parent!</button> -->
