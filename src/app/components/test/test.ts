@@ -44,6 +44,7 @@ export class Test {
     console.log('Form controls: ', this.complexForm.controls);
   }
 
+  // геттери для полів форми
   get name() {
     return this.complexForm.get('name');
   }
