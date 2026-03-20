@@ -21,6 +21,7 @@
         </mat-toolbar>
         <main>
             <!-- місце де ангуляр рендерить компоненти по шляхам -->
+            <div *ngIf="loading" style="padding: 20px;">Loading...</div>
             <router-outlet></router-outlet>
         </main>
     </mat-sidenav-content>

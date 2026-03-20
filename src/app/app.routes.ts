@@ -8,12 +8,52 @@ import { PageNotFound } from './components/page-not-found/page-not-found';
 
 // масив маршрутів(path:'', component: ...) для ініціалізації роутингу на кореневому рівні
 // якщо юзер переходить по певному шляху, ми підвантажуємо компонент
+// export const routes: Routes = [
+//   { path: '', redirectTo: '/home', pathMatch: 'full' },
+//   { path: 'home', component: Home },
+//   { path: 'angular', component: Angular },
+//   { path: 'typescript', component: Typescript },
+//   { path: 'javascript', component: Javascript },
+//   { path: 'rxjs', component: Rxjs },
+//   { path: '**', component: PageNotFound },
+// ];
+
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: Home },
-  { path: 'angular', component: Angular },
-  { path: 'typescript', component: Typescript },
-  { path: 'javascript', component: Javascript },
-  { path: 'rxjs', component: Rxjs },
-  { path: '**', component: PageNotFound },
+
+  {
+    path: 'home',
+    loadComponent: () => import('./components/home/home').then((m) => m.Home),
+  },
+
+  {
+    path: 'angular',
+    loadComponent: () =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          import('./components/angular/angular').then((m) => resolve(m.Angular));
+        }, 2000); // 2 sec delay to see lazy loading in action
+      }),
+  },
+
+  {
+    path: 'typescript',
+    loadComponent: () => import('./components/typescript/typescript').then((m) => m.Typescript),
+  },
+
+  {
+    path: 'javascript',
+    loadComponent: () => import('./components/javascript/javascript').then((m) => m.Javascript),
+  },
+
+  {
+    path: 'rxjs',
+    loadComponent: () => import('./components/rxjs/rxjs').then((m) => m.Rxjs),
+  },
+
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./components/page-not-found/page-not-found').then((m) => m.PageNotFound),
+  },
 ];
