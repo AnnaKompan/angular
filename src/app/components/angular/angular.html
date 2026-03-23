@@ -1,1 +1,20 @@
-<p>angular works!</p>
+<ul>
+    <!-- викликаємо сигнал тому круглі дужки -->
+    @for (question of questions(); track question.number){
+    <li>
+        <p><strong>Question {{question.number}}:</strong>{{question.question}} ({{question.difficulty}})</p>
+    </li>
+    }
+</ul>
+
+<div #hoverArea class="hover-area">Hover over me to load the component!</div>
+
+@defer(on hover(hoverArea)){
+<app-test></app-test>
+}@placeholder{
+<div>Loading component...</div>
+}@loading{
+<div>Loading...</div>
+}@error {
+<p>Failed to load!</p>
+}
