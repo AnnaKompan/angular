@@ -67,10 +67,8 @@ export class Angular {
     //   .pipe(
     //     // tap для ведення журналу значень (для дебагу чи відстеження) логування значеня
     //     tap((value) => console.log('Перед обробкою', value)),
-
     //     // фільтруємо, залишаємо значення більші за 0
     //     filter((value) => value > 0),
-
     //     // мапінг: множимо кожне значення на 10
     //     map((value) => value * 10),
     //   )
@@ -78,23 +76,19 @@ export class Angular {
     //     next: (value) => console.log('Оброблене значення', value),
     //     complete: () => console.log('Завершено'),
     //   });
-
     // // ------------------- випуск значень для операторів в BehaviorSubject-------------------
     // this.behaviorSubject.next(1);
     // this.behaviorSubject.next(2);
     // this.behaviorSubject.next(-3); // значення ігнорується фільтором
     // this.behaviorSubject.next(3);
-
     // this.behaviorSubject.complete();
-
     // ------------------- випуск forkJoin -------------------
-    this.combined.subscribe({
-      next: ([response1, response2, response3]) => {
-        console.log('Результат forkJoin: ', response1, response2, response3);
-      },
-      complete: () => console.log('всі запити завершено!'),
-    });
-
+    // this.combined.subscribe({
+    //   next: ([response1, response2, response3]) => {
+    //     console.log('Результат forkJoin: ', response1, response2, response3);
+    //   },
+    //   complete: () => console.log('всі запити завершено!'),
+    // });
     // // producing first value through method next()
     // this.subjectFirst.next(1);
     // // значення продуовано і лише після підписався підписник, тому перший отримав 2!!!
