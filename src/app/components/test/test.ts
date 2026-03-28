@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import { Lightning } from '../../directives/lightning';
 import { TruncatePipe } from '../../pipes/truncate-pipe';
-import { Todo } from '../../services/todo';
+// import { Todo } from '../../services/todo';
 
 @Component({
   selector: 'app-test',
